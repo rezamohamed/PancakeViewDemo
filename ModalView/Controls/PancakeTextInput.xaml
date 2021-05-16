@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="DeliberateCreation.Controls.PancakeTextInput">
+<ContentView
+    x:Class="DeliberateCreation.Controls.PancakeTextInput"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:textInputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms">
     <ContentView.Content>
         <pancakeView:PancakeView
             x:Name="MyDraggableView"
@@ -15,9 +17,27 @@
             HorizontalOptions="FillAndExpand"
             VerticalOptions="EndAndExpand">
 
-            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                <Label Text="Inside pancake" />
-                <Button Text="Close" Clicked="CloseTextInput"></Button>
+
+            <StackLayout>
+                <Label Text="Title" />
+
+                <Button Clicked="CloseTextInput" Text="Cancel" />
+
+                <textInputLayout:SfTextInputLayout
+                    Margin="10"
+                    BackgroundColor="LightGray"
+                    CharMaxLength="280"
+                    ContainerType="None"
+                    HeightRequest="500"
+                    HorizontalOptions="FillAndExpand"
+                    InputViewPadding="0"
+                    ShowCharCount="True">
+                    <Editor
+                        x:Name="txtEntry"
+                        FontFamily="Font-Medium"
+                        FontSize="12"
+                        HeightRequest="100" />
+                </textInputLayout:SfTextInputLayout>
             </StackLayout>
 
         </pancakeView:PancakeView>
